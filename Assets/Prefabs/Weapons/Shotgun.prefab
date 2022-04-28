@@ -103,8 +103,8 @@ MonoBehaviour:
   ShotDelay: 1.5
   ShotPoint: {fileID: 3277739293769554349}
   Bullet: {fileID: 3712431141278764532, guid: 840fa68468bffc04bae5977d719987ce, type: 3}
-  _numbersOfBullets: 6
   _multiplyAccuracy: 5
+  _numbersOfBullets: 6
 --- !u!1 &3657682911450361149
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,10 +16,11 @@ public class Player : MonoBehaviour
     private string _animationDead = "Dying";
 
     public Target TargetArrow => _targetArrow;
-    public int Money { get; private set; }
+  [field:SerializeField]  public int Money { get; private set; }
     public bool IsDead { get; private set; }
 
-    public event UnityAction<int, int> HealthChange;
+    public event UnityAction<int, int> HealthChanged;
+    public event UnityAction<int> MoneyChanged;
 
 
     private void Awake()
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        HealthChange?.Invoke(_currentHealth, _maxHealth);
+        HealthChanged?.Invoke(_currentHealth, _maxHealth);
 
         if (_currentHealth <= 0)
         {
@@ -54,6 +56,14 @@ public class Player : MonoBehaviour
     public void AddMoney(int money)
     {
         Money += money;
+        MoneyChanged?.Invoke(Money);
+    }
+
+    public void BuyWeapon(Weapon weapon)
+    {
+        Money -= weapon.Price;
+        MoneyChanged?.Invoke(Money);
+        _weapons.Add(weapon);
     }
 
     private void Shoot()
