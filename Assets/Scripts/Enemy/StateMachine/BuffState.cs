@@ -4,27 +4,26 @@ using UnityEngine;
 public class BuffState : State
 {
     [SerializeField] private State _stateForBuff;
-    [SerializeField] private float _multipeValue;
-    [SerializeField] private float _actionTime;    
+    [SerializeField] private int _multipeValue;
+    [SerializeField] private float _actionTime;
     [SerializeField] private int _amountEnemysForBuff;
 
-    private List<State> _targetEnemys;
+    private List<State> _targetEnemys = new List<State>();
 
     private void OnEnable()
     {
-            AppleyBuff();
+        AppleyBuff();
     }
 
     private void AppleyBuff()
     {
         SetTargetEnemys();
 
-        foreach (var enemys in _targetEnemys)
+        for (int i = 0; i < _targetEnemys.Count;)
         {
-            enemys.StartBuff(_multipeValue, _actionTime);
+            _targetEnemys[i].StartBuff(_multipeValue, _actionTime);
+            _targetEnemys.RemoveAt(i);
         }
-
-        _targetEnemys = null;
     }
 
     private void SetTargetEnemys()
@@ -39,9 +38,9 @@ public class BuffState : State
             }
             else
             {
-                if (hit[i].collider.TryGetComponent<State>(out State state) == _stateForBuff)
+                if (hit[i].collider.TryGetComponent(out State state))
                 {
-                    _targetEnemys[i] = state;
+                    _targetEnemys.Add(state);
                 }
             }
         }

@@ -19,7 +19,7 @@ public class MoveState : State
         transform.position = Vector2.MoveTowards(transform.position, Target.TargetArrow.transform.position, _speed * Time.deltaTime);
     }
 
-    public override void StartBuff(float multiple, float actionTime)
+    public override void StartBuff(int multiple, float actionTime)
     {
         if (_speedBuff != null)
             return;
@@ -27,7 +27,7 @@ public class MoveState : State
             _speedBuff = StartCoroutine(SpeedBuff(multiple, actionTime));
     }
 
-    private IEnumerator SpeedBuff(float multiple, float actionTime)
+    private IEnumerator SpeedBuff(int multiple, float actionTime)
     {    
         _speed *= multiple;
 

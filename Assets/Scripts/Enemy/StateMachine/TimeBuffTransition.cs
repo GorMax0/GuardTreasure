@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeBuffTransition : Transition
@@ -11,6 +9,7 @@ public class TimeBuffTransition : Transition
     private void OnEnable()
     {
         _timeAfterBuff = _delayBetweenBuffs;
+        NeedTransit = false;
     }
 
     void Update()

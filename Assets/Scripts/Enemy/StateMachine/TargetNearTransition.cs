@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DistanceTransition : Transition
+public class TargetNearTransition : Transition
 {
     [SerializeField] private float _transitionRange;
     [SerializeField] private float _rangeSpread;
