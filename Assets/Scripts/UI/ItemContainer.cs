@@ -1,2 +1,2 @@
 using UnityEngine;
-public class ItemContainer : MonoBehaviour{}
+public class ItemContainer : MonoBehaviour {}

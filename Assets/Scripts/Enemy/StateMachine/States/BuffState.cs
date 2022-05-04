@@ -1,19 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuffState : State
+public abstract class BuffState : State
 {
-    [SerializeField] private State _stateForBuff;
     [SerializeField] private int _multipeValue;
     [SerializeField] private float _actionTime;
     [SerializeField] private int _amountEnemysForBuff;
 
-    private List<State> _targetEnemys = new List<State>();
+    private List<IBuff> _targetEnemys = new List<IBuff>();
 
     private void OnEnable()
     {
         AppleyBuff();
     }
+
+    protected abstract IBuff GetStateForBuff(Enemy enemy);
 
     private void AppleyBuff()
     {
@@ -28,9 +29,9 @@ public class BuffState : State
 
     private void SetTargetEnemys()
     {
-        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, -transform.right);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, -transform.right);
 
-        for (int i = 0; i < hit.Length; i++)
+        for (int i = 0; i < hits.Length; i++)
         {
             if (_targetEnemys.Count == _amountEnemysForBuff)
             {
@@ -38,11 +39,14 @@ public class BuffState : State
             }
             else
             {
-                if (hit[i].collider.TryGetComponent(out State state))
+                if (hits[i].collider.TryGetComponent(out Enemy enemy))
                 {
-                    _targetEnemys.Add(state);
+                    var stateForBuff = GetStateForBuff(enemy);
+
+                    _targetEnemys.Add(stateForBuff);
                 }
             }
         }
     }
 }
+

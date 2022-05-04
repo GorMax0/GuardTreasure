@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 6134921965724225227}
   - component: {fileID: 8542513349030780993}
   - component: {fileID: 2239891062501784050}
+  - component: {fileID: 7142619664630695384}
+  - component: {fileID: 1392637699090008940}
   m_Layer: 0
   m_Name: Ogre
   m_TagString: Untagged
@@ -149,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8ec5ce8ffd98c43a706a12365a118d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
+  _health: 2
   _reward: 1
 --- !u!114 &8542513349030780996
 MonoBehaviour:
@@ -178,7 +180,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8542513349030780994}
-  _baseSpeed: 2.6
+  - {fileID: 8542513349030780993}
+  - {fileID: 7142619664630695384}
+  _baseSpeed: 1.5
 --- !u!114 &8563826485237065684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,8 +225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 8542513349030780993}
   - {fileID: 8563826485237065684}
+  - {fileID: 8542513349030780993}
+  - {fileID: 7142619664630695384}
   _baseDamage: 1
   _delay: 1.5
 --- !u!114 &8542513349030780993
@@ -248,6 +253,32 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fd5817c92ac42f419487fa0e2088797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+--- !u!114 &7142619664630695384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542513348532863707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6067cab2ea904e2499211a163fd622a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 1392637699090008940}
+--- !u!114 &1392637699090008940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542513348532863707}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ec7aaa61db01d4b8bce47b6440c350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []

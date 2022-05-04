@@ -22,12 +22,6 @@ public class Enemy : MonoBehaviour
         _health -= damage;
 
         if (_health <= 0)
-            Die();
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
-        Died?.Invoke(this);
+            Died?.Invoke(this);
     }
 }

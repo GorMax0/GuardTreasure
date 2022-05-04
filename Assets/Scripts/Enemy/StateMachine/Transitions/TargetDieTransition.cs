@@ -6,7 +6,7 @@ public class TargetDieTransition : Transition
 {
     private void Update()
     {
-        if (Target == null || Target.IsDead == true)
+        if (Target.IsDead == true)
         {
             NeedTransit = true;
         }

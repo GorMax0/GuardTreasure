@@ -15,10 +15,13 @@ GameObject:
   - component: {fileID: 6410146332906781139}
   - component: {fileID: 4828627336082038920}
   - component: {fileID: 4828627336082038919}
+  - component: {fileID: 4432728561452641984}
   - component: {fileID: 4828627336082038918}
   - component: {fileID: 7768275275642205875}
   - component: {fileID: 4828627336082038917}
   - component: {fileID: 1623428842382303530}
+  - component: {fileID: 1427123732493301542}
+  - component: {fileID: -6818142658203524574}
   m_Layer: 0
   m_Name: OgreWarrior
   m_TagString: Untagged
@@ -148,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8ec5ce8ffd98c43a706a12365a118d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 8
-  _reward: 2
+  _health: 3
+  _reward: 3
 --- !u!114 &4828627336082038920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +180,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 4828627336082038918}
-  _baseSpeed: 4
+  - {fileID: 4828627336082038917}
+  - {fileID: 1427123732493301542}
+  _baseSpeed: 2.1
+--- !u!114 &4432728561452641984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828627336522866301}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc436f95c0de14478bfe924dc8a75f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 4828627336082038919}
+  _transitionRange: 1.9
 --- !u!114 &4828627336082038918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 7768275275642205875}
-  _transitionRange: 1.7
+  _transitionRange: 1.9
   _rangeSpread: 0.5
 --- !u!114 &7768275275642205875
 MonoBehaviour:
@@ -206,9 +225,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
+  - {fileID: 4432728561452641984}
   - {fileID: 4828627336082038917}
-  _damage: 6
-  _delay: 1
+  - {fileID: 1427123732493301542}
+  _baseDamage: 2
+  _delay: 1.5
 --- !u!114 &4828627336082038917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +253,32 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fd5817c92ac42f419487fa0e2088797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+--- !u!114 &1427123732493301542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828627336522866301}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6067cab2ea904e2499211a163fd622a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: -6818142658203524574}
+--- !u!114 &-6818142658203524574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828627336522866301}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ec7aaa61db01d4b8bce47b6440c350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []

@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class AttackState : State
+public class AttackState : State, IBuff
 {
     [SerializeField] private int _baseDamage;
     [SerializeField] private float _delay;
@@ -31,7 +30,7 @@ public class AttackState : State
         _lastAttackTime -= Time.deltaTime;
     }
 
-    public override void StartBuff(int multiple, float actionTime) 
+    public void StartBuff(int multiple, float actionTime)
     {
         if (_attackBuff != null)
             return;

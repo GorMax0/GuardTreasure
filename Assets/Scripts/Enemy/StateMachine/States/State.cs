@@ -7,8 +7,6 @@ public class State : MonoBehaviour
 
     protected Player Target { get; private set; }
 
-    public virtual void StartBuff(int multiple, float actionTime) { }
-
     public void Enter(Player target)
     {
         if (enabled == false)

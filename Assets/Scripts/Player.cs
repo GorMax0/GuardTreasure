@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,7 +15,7 @@ public class Player : MonoBehaviour
     private string _animationDead = "Dying";
 
     public Target TargetArrow => _targetArrow;
-  [field:SerializeField]  public int Money { get; private set; }
+    public int Money { get; private set; }
     public bool IsDead { get; private set; }
 
     public event UnityAction<int, int> HealthChanged;

@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveState : State
+public class MoveState : State, IBuff
 {
     [SerializeField] private float _baseSpeed;
 
@@ -19,7 +18,7 @@ public class MoveState : State
         transform.position = Vector2.MoveTowards(transform.position, Target.TargetArrow.transform.position, _speed * Time.deltaTime);
     }
 
-    public override void StartBuff(int multiple, float actionTime)
+    public void StartBuff(int multiple, float actionTime)
     {
         if (_speedBuff != null)
             return;
@@ -28,10 +27,10 @@ public class MoveState : State
     }
 
     private IEnumerator SpeedBuff(int multiple, float actionTime)
-    {    
+    {
         _speed *= multiple;
 
-        while(actionTime > 0)
+        while (actionTime > 0)
         {
             yield return null;
             actionTime -= Time.deltaTime;

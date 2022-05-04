@@ -20,7 +20,7 @@ public class NextWave : MonoBehaviour
     }
 
     public void OnAllEnemySpawned()
-    { 
+    {
         _nextWaveButton.gameObject.SetActive(true);
     }
 

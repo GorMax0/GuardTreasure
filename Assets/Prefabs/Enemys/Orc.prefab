@@ -15,10 +15,13 @@ GameObject:
   - component: {fileID: 116293752306494780}
   - component: {fileID: 5742227363641696208}
   - component: {fileID: 5742227363641696207}
+  - component: {fileID: 7696903880665105166}
   - component: {fileID: 5742227363641696206}
   - component: {fileID: 7376549871004788808}
   - component: {fileID: 5742227363641696205}
   - component: {fileID: 5062622189252918954}
+  - component: {fileID: 951918783799844897}
+  - component: {fileID: 1178358679992867585}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Untagged
@@ -177,7 +180,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 5742227363641696206}
+  - {fileID: 5742227363641696205}
+  - {fileID: 951918783799844897}
   _baseSpeed: 3
+--- !u!114 &7696903880665105166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742227363288212166}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc436f95c0de14478bfe924dc8a75f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 5742227363641696207}
+  _transitionRange: 1.7
 --- !u!114 &5742227363641696206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
+  - {fileID: 7696903880665105166}
   - {fileID: 5742227363641696205}
+  - {fileID: 951918783799844897}
   _baseDamage: 7
   _delay: 1.2
 --- !u!114 &5742227363641696205
@@ -232,6 +253,32 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fd5817c92ac42f419487fa0e2088797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions: []
+--- !u!114 &951918783799844897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742227363288212166}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6067cab2ea904e2499211a163fd622a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 1178358679992867585}
+--- !u!114 &1178358679992867585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742227363288212166}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ec7aaa61db01d4b8bce47b6440c350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
