@@ -6,15 +6,17 @@ public abstract class BuffState : State
     [SerializeField] private int _multipeValue;
     [SerializeField] private float _actionTime;
     [SerializeField] private int _amountEnemysForBuff;
+    [SerializeField] private ParticleSystem _actionEffectBuff;
+    [SerializeField] private ParticleSystem _castEffectBuff;
 
-    private List<IBuff> _targetEnemys = new List<IBuff>();
+    private List<State> _targetEnemys = new List<State>();
 
     private void OnEnable()
     {
         AppleyBuff();
     }
 
-    protected abstract IBuff GetStateForBuff(Enemy enemy);
+    protected abstract State GetStateForBuff(Enemy enemy);
 
     private void AppleyBuff()
     {
@@ -22,8 +24,14 @@ public abstract class BuffState : State
 
         for (int i = 0; i < _targetEnemys.Count;)
         {
-            _targetEnemys[i].StartBuff(_multipeValue, _actionTime);
+            _targetEnemys[i].StartChangeMultipe(_multipeValue, _actionTime, _actionEffectBuff);
             _targetEnemys.RemoveAt(i);
+        }
+
+        if (_castEffectBuff != null)
+        {
+            _castEffectBuff.gameObject.SetActive(true);
+            _castEffectBuff.Play();
         }
     }
 

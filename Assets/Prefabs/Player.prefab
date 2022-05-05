@@ -495,7 +495,6 @@ MonoBehaviour:
   _weapons:
   - {fileID: 958058447351997123}
   _targetArrow: {fileID: 5496211550574751699}
-  <Money>k__BackingField: 0
 --- !u!1 &6612668829105860026
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
+    [SerializeField] private int _experience;
     private Player _target;
 
     public int Reward => _reward;
