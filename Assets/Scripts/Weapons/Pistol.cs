@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Pistol : Weapon
 {
@@ -6,8 +7,10 @@ public class Pistol : Weapon
     {
         if (CurrentDelay <= 0)
         {
-            Instantiate(Bullet, ShotPoint.transform.position, Quaternion.identity);
+            BulletPool.InvokeBullet(Bullet, ShootPoint, Quaternion.identity);
+            ShootEffect.gameObject.SetActive(true);
             CurrentDelay = ShotDelay;
+            NeedReload = true;
         }
     }
 }

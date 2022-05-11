@@ -10,7 +10,6 @@ public class AssaultRifle : Weapon
         if (CurrentDelay <= 0)
         {
             StartCoroutine(ShootInBursts());
-
         }
     }
 
@@ -21,11 +20,13 @@ public class AssaultRifle : Weapon
 
         for (int currentBullet = 1; currentBullet <= _numberBulletsInQueue; currentBullet++)
         {
-            Instantiate(Bullet, ShotPoint.transform.position, Quaternion.identity);
+            BulletPool.InvokeBullet(Bullet, ShootPoint, Quaternion.identity);
+            ShootEffect.gameObject.SetActive(true);
 
             if (currentBullet == _numberBulletsInQueue)
             {
                 CurrentDelay = ShotDelay;
+                NeedReload = true;
             }
 
             yield return delay;

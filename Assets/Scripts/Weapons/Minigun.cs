@@ -29,7 +29,8 @@ public class Minigun : Weapon
 
         while (Input.GetMouseButton(0) && _currentCountBullets != 0)
         {
-            Instantiate(Bullet, ShotPoint.transform.position, Quaternion.identity);
+            BulletPool.InvokeBullet(Bullet, ShootPoint, Quaternion.identity);
+            ShootEffect.gameObject.SetActive(true);
             _currentCountBullets--;
 
             yield return delay;
@@ -38,6 +39,7 @@ public class Minigun : Weapon
         if (_currentCountBullets == 0)
         {
             CurrentDelay = ShotDelay;
+            NeedReload = true;
             _currentCountBullets = _bulletsInMagazine;
         }
     }

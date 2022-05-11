@@ -99,7 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 2
   _speed: 30
-  _distance: 12
+  _distance: 13
+  _type: 4
 --- !u!61 &-2668794879678619617
 BoxCollider2D:
   m_ObjectHideFlags: 0

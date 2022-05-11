@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8130061724796460891}
   - component: {fileID: 3191189163676402987}
   - component: {fileID: 7998356052139544624}
-  - component: {fileID: 1622734898021662552}
   - component: {fileID: 2664201468438443717}
+  - component: {fileID: 1622734898021662552}
   m_Layer: 0
   m_Name: BulletCommonPistol
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8507822841198227095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.407876, y: -3.0507674, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,28 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _speed: 12
-  _distance: 12
---- !u!50 &1622734898021662552
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8507822841198227095}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  _distance: 8
+  _type: 0
 --- !u!61 &2664201468438443717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +127,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.093333334, y: 0.034666665}
   m_EdgeRadius: 0
+--- !u!50 &1622734898021662552
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8507822841198227095}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ParticleEffect))]
 public class State : MonoBehaviour
 {
     [SerializeField] private List<Transition> _transitions;
 
     private int _baseMultiple = 1;
     private Coroutine _changeMultiple;
-    private BuffEffect _buffEffect;
+    private ParticleEffect _particleEffect;
 
     protected int Multiple;
 
@@ -69,8 +70,8 @@ public class State : MonoBehaviour
     private IEnumerator ChangeMultiple(int multiple, float actionTime, ParticleSystem effect)
     {
         Multiple = multiple;
-        CacheBuffEffect();
-        _buffEffect.StartEffect(effect);
+        CacheParticleEffect();
+        _particleEffect.StartEffect(effect);
 
         while (actionTime > 0)
         {
@@ -79,15 +80,15 @@ public class State : MonoBehaviour
         }
 
         Multiple = _baseMultiple;
-        _buffEffect.StopEffect(effect);
+        _particleEffect.StopEffect(effect);
         _changeMultiple = null;
     }
 
-    private void CacheBuffEffect()
+    private void CacheParticleEffect()
     {
-        if (_buffEffect != null)
+        if (_particleEffect != null)
             return;
 
-        _buffEffect = GetComponent<BuffEffect>();
+        _particleEffect = GetComponent<ParticleEffect>();
     }
 }

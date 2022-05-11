@@ -15,6 +15,7 @@ public class DieState : State
     private void OnEnable()
     {
         _animator.Play(_animationDying);
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private void Die()

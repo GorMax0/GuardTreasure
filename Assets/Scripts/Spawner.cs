@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Spawner _spawnPoint;
     [SerializeField] private Player _player;
 
+    private PlayerParameterUP _playerStats;
     private Wave _currentWave;
     private int _currentWaveIndex = 0;
     private int _lengthCurrentWave;
@@ -15,11 +16,13 @@ public class Spawner : MonoBehaviour
     private int _indexEnemySpawned = 0;
     private int _countEnemyDied = 0;
 
-    public event UnityAction AllEnemySpawned;
+    public event UnityAction AllEnemyDead;
     public event UnityAction<int, int> EnemyCountChanged;
+    public event UnityAction<int> NextWaveEnabled;
 
     private void Start()
     {
+        _playerStats = _player.GetComponent<PlayerParameterUP>();
         SetWave(_currentWaveIndex);
     }
 
@@ -28,7 +31,7 @@ public class Spawner : MonoBehaviour
         if (_currentWave == null)
         {
             if (_countEnemyDied >= _lengthCurrentWave && _waves.Count > _currentWaveIndex + 1)
-                AllEnemySpawned?.Invoke();
+                AllEnemyDead?.Invoke();
 
             return;
         }
@@ -52,6 +55,7 @@ public class Spawner : MonoBehaviour
         _indexEnemySpawned = 0;
         _countEnemyDied = 0;
         EnemyCountChanged?.Invoke(_countEnemyDied, _lengthCurrentWave);
+        NextWaveEnabled?.Invoke(_currentWaveIndex + 1);
     }
 
     private void InstantiateEnemy()
@@ -74,6 +78,7 @@ public class Spawner : MonoBehaviour
         enemy.Died -= OnEnemyDied;
 
         _player.AddMoney(enemy.Reward);
+        _playerStats.AddExperience(enemy.Experience);
 
         _countEnemyDied++;
         EnemyCountChanged?.Invoke(_countEnemyDied, _lengthCurrentWave);
